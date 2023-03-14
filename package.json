@@ -1,5 +1,5 @@
 {
-  "homepage": "https://SoccusBableJuck17.github.io/pantheon-hit-counter/index.html",
+  "homepage": "https://SoccusBableJuck17.github.io/pantheon-hit-counter/",
   "name": "phc",
   "version": "0.1.0",
   "private": false,
@@ -40,6 +40,6 @@
   },
   "devDependencies": {
     "gh-pages": "^5.0.0",
-    "sass": "^1.58.3"
+    "sass": "^1.59.2"
   }
 }

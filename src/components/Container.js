@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Heading from './Heading';
 import BossRow from './BossRow';
 import GetJSON from './GetJSON';
@@ -57,6 +57,16 @@ function Container() {
     const [table, setTable] = useState(initialState)
     const [displayNohits, setDisplayNohits] = useState(true)
 
+    useEffect(() => {
+        const root = document.documentElement
+        //console.log(root.style.getPropertyValue("--zoomConstant")) Why is the --zoomConstant property value from scss ignored?
+        root?.style.setProperty("--zoomConstant", 1)
+        window.addEventListener('resize', () => {
+            const browserZoomLevel = Math.round(window.devicePixelRatio * 100) / 100
+            root?.style.setProperty("--zoomConstant", browserZoomLevel)
+        })
+    }, [])
+
     const toggleNohits = () => {
         setDisplayNohits(prevDisplay => !prevDisplay)
         console.log(displayNohits)
@@ -81,7 +91,8 @@ function Container() {
     const writeCount = (key, event) => {
         let newValue = event.target.value
         if (newValue.length > 7) newValue = newValue.substring(0, 7)
-        setTable(prevTable => Object.assign({}, { ...prevTable, [key]: parseInt(newValue) }))
+        newValue = isNaN(parseInt(newValue)) ? 0 : parseInt(newValue)
+        setTable(prevTable => Object.assign({}, { ...prevTable, [key]: newValue}))
     }
 
     return (
