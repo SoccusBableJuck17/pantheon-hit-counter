@@ -6,7 +6,7 @@ function ToggleNohits({ displayNohits, toggleNohits }) {
 
   let text = displayNohits ? 'Hide Nohits' : 'Show Nohits'
   return (
-    <div className={styles.hideNohits} onClick={toggleNohits}>
+    <div className={styles.toggleNohits} onClick={toggleNohits}>
       {text}
     </div>
   )

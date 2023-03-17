@@ -1,15 +1,20 @@
 import React from 'react'
 import styles from './componentStyles.module.scss'
 
-function GetJSON({table, includeNohits}) {
+function GetJSON({ table, includeNohits }) {
 
   const copyJSON = () => {
-    const blob = includeNohits ? new Blob([JSON.stringify(table)], { type: "application/json" }) :
-    new Blob([
-      JSON.stringify(
-        Object.fromEntries(Object.entries(table).filter(([name, count]) => count > 0))
+    const tableDownload = Object.fromEntries(Object.entries(table).map(([name, data]) => [name, 
+      data['reset'] ? { count: data['count'], reset: true } : {count: data['count']}]
+    ))
+    const blob = includeNohits ? new Blob([JSON.stringify(
+      tableDownload
+    )], { type: "application/json" }) :
+      new Blob([
+        JSON.stringify(
+          Object.fromEntries(Object.entries(tableDownload).filter(([name, data]) => data['count'] > 0 || data['reset']))
         )
-    ], { type: "application/json" })
+      ], { type: "application/json" })
     const href = URL.createObjectURL(blob)
 
     const currentDate = new Date();

@@ -1,6 +1,9 @@
 #root {
-  $zoomConstant: 1; //this value is ignored for an unknown reason, so it's passed from JS after component mounting
+  $zoomConstant: 1 !global; //this value is ignored for an unknown reason, so it's passed from JS after component mounting
 }
+
+$colorVar: #ffffff;
+$cursorVar: pointer;
 
 @function scaleValue(
   $value,
@@ -41,7 +44,7 @@
   justify-content: center;
   justify-self: center;
   flex-direction: row;
-  
+  height: fit-content;
 }
 
 .jsonButton {
@@ -54,7 +57,7 @@
   font: bold;
   font-family: hollow-knight;
   color: white;
-  margin-top: scaleValue(15, var(--zoomConstant));
+  //margin-top: scaleValue(15, var(--zoomConstant));
   margin-bottom: scaleValue(20, var(--zoomConstant));
   border: solid white scaleValue(3, var(--zoomConstant));
   border-radius: scaleValue(5, var(--zoomConstant));
@@ -70,7 +73,7 @@
   background: rgb(50, 50, 50);
 }
 
-.hideNohits {
+.toggleNohits {
   display: flex;
   width: scaleValue(260, var(--zoomConstant));
   background-color: rgb(15, 15, 15);
@@ -78,7 +81,7 @@
   font: bold;
   font-family: hollow-knight;
   color: white;
-  margin-top: scaleValue(15, var(--zoomConstant));
+  //margin-top: scaleValue(15, var(--zoomConstant));
   margin-bottom: scaleValue(20, var(--zoomConstant));
   border: solid white scaleValue(3, var(--zoomConstant));
   border-radius: scaleValue(5, var(--zoomConstant));
@@ -88,6 +91,21 @@
   cursor: pointer;
   margin-left: scaleValue(30, var(--zoomConstant));
   user-select: none;
+}
+
+.toggleNohits:hover {
+  background: rgb(50, 50, 50);
+}
+
+.reset {
+  @extend .toggleNohits;
+  width: scaleValue(130, var(--zoomConstant));
+  margin-bottom: scaleValue(20, var(--zoomConstant));
+  margin-top: scaleValue(30, var(--zoomConstant));
+}
+
+.reset:hover {
+  background: rgb(50, 50, 50);
 }
 
 .flexContainer {
@@ -101,6 +119,7 @@
   border-bottom: solid white scaleValue(3, var(--zoomConstant));
   border-left: solid white scaleValue(3, var(--zoomConstant));
   border-right: solid white scaleValue(3, var(--zoomConstant));
+  color: var(--colorVar);
 }
 
 .bossDiv {
@@ -109,7 +128,7 @@
     font-size: scaleValue(30, var(--zoomConstant));
     font: bold;
     font-family: hollow-knight;
-    color: white;
+    color: inherit;
     width: scaleValue(470, var(--zoomConstant));
     height: scaleValue(55, var(--zoomConstant));
     // border-left: solid scaleValue(3);
@@ -117,6 +136,15 @@
     border-color: white;
     justify-content: center;
     align-items: center;
+    cursor: var(--cursorVar);
+}
+
+.rBossDiv {
+  @extend .bossDiv;
+  cursor: pointer;
+  color: white;
+  text-shadow: 0 0 scaleValue(7, var(--zoomConstant)) #FEFCC1,
+               0 0 scaleValue(7, var(--zoomConstant)) #FEFCC1
 }
 
 /* .bossDiv:hover {
@@ -125,11 +153,11 @@
 
 .countDiv {
     display: flex;
-    cursor: pointer;
+    cursor: var(--cursorVar);
     background-color: rgb(15, 15, 15);
     font-size: scaleValue(30, var(--zoomConstant));
     font: bold;
-    color: white;
+    color: inherit;
     font-family: hollow-knight;
     width: scaleValue(140, var(--zoomConstant));
     height: scaleValue(55, var(--zoomConstant));
@@ -146,15 +174,25 @@
 
 .inputCount {
     font-size: scaleValue(30, var(--zoomConstant));
-    cursor: pointer;
+    cursor: var(--cursorVar);
     font: bold;
-    color: white;
+    color: inherit;
     font-family: hollow-knight;
     background-color: transparent;
     width: 100%;
+    height: scaleValue(50, var(--zoomConstant));
     text-align: center;
     border: none;
+    outline: none;
     margin-right: scaleValue(10, var(--zoomConstant));
+}
+
+.rInputCount {
+  @extend .inputCount;
+  cursor: pointer;
+  color: white;
+  text-shadow: 0 0 scaleValue(7, var(--zoomConstant)) #FEFCC1,
+               0 0 scaleValue(7, var(--zoomConstant)) #FEFCC1
 }
 
 /* .inputCount:hover {
@@ -162,28 +200,40 @@
 } */
 
 .plus {
-    display:inline-block;
-    cursor: pointer;
-    width: scaleValue(55, var(--zoomConstant));
-    height: scaleValue(55, var(--zoomConstant));
-    border-top: solid scaleValue(3, var(--zoomConstant));
-    border-right: solid scaleValue(3, var(--zoomConstant));
-    border-color: white;
-    
-    background:
-      linear-gradient(#fff 0 0),
-      linear-gradient(#fff 0 0),
-      rgb(15, 15, 15);
-    background-position: center;
-    background-size: 50% scaleValue(2, var(--zoomConstant)), scaleValue(2, var(--zoomConstant)) 50%; /*thickness = 2px, length = 50% (25px)*/
-    background-repeat: no-repeat;
-  }
+  display:inline-block;
+  cursor: var(--cursorVar);
+  width: scaleValue(55, var(--zoomConstant));
+  height: scaleValue(55, var(--zoomConstant));
+  border-top: solid scaleValue(3, var(--zoomConstant));
+  border-right: solid scaleValue(3, var(--zoomConstant));
+  border-color: white;
+  
+  background:
+    linear-gradient(var(--colorVar) 0 0),
+    linear-gradient(var(--colorVar) 0 0),
+    rgb(15, 15, 15);
+  background-position: center;
+  background-size: 50% scaleValue(2, var(--zoomConstant)), scaleValue(2, var(--zoomConstant)) 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-repeat: no-repeat;
+}
+
+.rPlus {
+  @extend .plus;
+  cursor: pointer;
+  background:
+  linear-gradient(white 0 0),
+  linear-gradient(white 0 0),
+  rgb(15, 15, 15);
+  background-position: center;
+  background-size: 50% scaleValue(2, var(--zoomConstant)), scaleValue(2, var(--zoomConstant)) 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-repeat: no-repeat;
+}
 
   .plus:hover {
     background:
-      linear-gradient(#fff 0 0),
-      linear-gradient(#fff 0 0),
-      rgb(50, 50, 50);
+    linear-gradient(var(--colorVar) 0 0),
+    linear-gradient(var(--colorVar) 0 0),
+    rgb(50, 50, 50);
     background-position: center;
     background-size: 50% scaleValue(2, var(--zoomConstant)), scaleValue(2, var(--zoomConstant)) 50%; /*thickness = 2px, length = 50% (25px)*/
     background-repeat: no-repeat;
@@ -191,7 +241,7 @@
 
   .minus {
     display:inline-block;
-    cursor: pointer;
+    cursor: var(--cursorVar);
     width: scaleValue(55, var(--zoomConstant));
     height: scaleValue(55, var(--zoomConstant));
     border-top: solid scaleValue(3, var(--zoomConstant));
@@ -199,9 +249,21 @@
     border-color: white;
     
     background:
-      linear-gradient(#fff 0 0),
-      linear-gradient(#fff 0 0),
+      linear-gradient(var(--colorVar) 0 0),
+      linear-gradient(var(--colorVar) 0 0),
       rgb(15, 15, 15);
+    background-position: center;
+    background-size: 50% scaleValue(2, var(--zoomConstant)), 0px 50%; /*thickness = 2px, length = 50% (25px)*/
+    background-repeat: no-repeat;
+  }
+
+  .rMinus {
+    @extend .minus;
+    cursor: pointer;
+    background:
+    linear-gradient(white 0 0),
+    linear-gradient(white 0 0),
+    rgb(15, 15, 15);
     background-position: center;
     background-size: 50% scaleValue(2, var(--zoomConstant)), 0px 50%; /*thickness = 2px, length = 50% (25px)*/
     background-repeat: no-repeat;
@@ -209,8 +271,8 @@
 
   .minus:hover {
     background:
-      linear-gradient(#fff 0 0),
-      linear-gradient(#fff 0 0),
+      linear-gradient(var(--colorVar) 0 0),
+      linear-gradient(var(--colorVar) 0 0),
       rgb(50, 50, 50);
     background-position: center;
     background-size: 50% scaleValue(2, var(--zoomConstant)), 0px 50%; /*thickness = 2px, length = 50% (25px)*/
