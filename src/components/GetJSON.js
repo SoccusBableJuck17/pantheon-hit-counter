@@ -4,8 +4,8 @@ import styles from './componentStyles.module.scss'
 function GetJSON({ table, includeNohits }) {
 
   const copyJSON = () => {
-    const tableDownload = Object.fromEntries(Object.entries(table).map(([name, data]) => [name, 
-      data['reset'] ? { count: data['count'], reset: true } : {count: data['count']}]
+    const tableDownload = Object.fromEntries(Object.entries(table).map(([name, data]) => [name,
+      data['reset'] ? { count: data['count'], reset: true } : { count: data['count'] }]
     ))
     const blob = includeNohits ? new Blob([JSON.stringify(
       tableDownload

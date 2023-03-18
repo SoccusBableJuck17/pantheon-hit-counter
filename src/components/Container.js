@@ -9,48 +9,48 @@ import ToggleNohits from './ToggleNohits';
 import Reset from './Reset';
 
 const initialState = {
-    "vengefly_king": { count: 0, clickable: true, reset: false },
-    "gruz_mother": { count: 0, clickable: true, reset: false },
-    "false_knight": { count: 0, clickable: true, reset: false },
-    "massive_moss_charger": { count: 0, clickable: true, reset: false },
-    "hornet_protector": { count: 0, clickable: true, reset: false },
-    "gorb": { count: 0, clickable: true, reset: false },
-    "dung_defender": { count: 0, clickable: true, reset: false },
-    "soul_warrior": { count: 0, clickable: true, reset: false },
-    "brooding_mawlek": { count: 0, clickable: true, reset: false },
-    "nailmasters_oro_&_mato": { count: 0, clickable: true, reset: false },
-    "xero": { count: 0, clickable: true, reset: false },
-    "crystal_guardian": { count: 0, clickable: true, reset: false },
-    "soul_master": { count: 0, clickable: true, reset: false },
-    "oblobbles": { count: 0, clickable: true, reset: false },
-    "sisters_of_battle": { count: 0, clickable: true, reset: false },
-    "marmu": { count: 0, clickable: true, reset: false },
-    "flukemarm": { count: 0, clickable: true, reset: false },
-    "broken_vessel": { count: 0, clickable: true, reset: false },
-    "galien": { count: 0, clickable: true, reset: false },
-    "paintmaster_sheo": { count: 0, clickable: true, reset: false },
-    "hive_knight": { count: 0, clickable: true, reset: false },
-    "elder_hu": { count: 0, clickable: true, reset: false },
-    "the_collector": { count: 0, clickable: true, reset: false },
-    "god_tamer": { count: 0, clickable: true, reset: false },
-    "troupe_master_grimm": { count: 0, clickable: true, reset: false },
-    "watcher_knights": { count: 0, clickable: true, reset: false },
-    "uumuu": { count: 0, clickable: true, reset: false },
-    "winged_nosk": { count: 0, clickable: true, reset: false },
-    "great_nailsage_sly": { count: 0, clickable: true, reset: false },
-    "hornet_sentinel": { count: 0, clickable: true, reset: false },
-    "enraged_guardian": { count: 0, clickable: true, reset: false },
-    "lost_kin": { count: 0, clickable: true, reset: false },
-    "no_eyes": { count: 0, clickable: true, reset: false },
-    "traitor_lord": { count: 0, clickable: true, reset: false },
-    "white_defender": { count: 0, clickable: true, reset: false },
-    "soul_tyrant": { count: 0, clickable: true, reset: false },
-    "markoth": { count: 0, clickable: true, reset: false },
-    "grey_prince_zote": { count: 0, clickable: true, reset: false },
-    "falied_champion": { count: 0, clickable: true, reset: false },
-    "nightmare_king_grimm": { count: 0, clickable: true, reset: false },
-    "pure_vessel": { count: 0, clickable: true, reset: false },
-    "absolute_radiance": { count: 0, clickable: true, reset: false }
+    "vengefly_king": { count: 0, clickable: true, reset: false, index: 1 },
+    "gruz_mother": { count: 0, clickable: true, reset: false, index: 2 },
+    "false_knight": { count: 0, clickable: true, reset: false, index: 3 },
+    "massive_moss_charger": { count: 0, clickable: true, reset: false, index: 4 },
+    "hornet_protector": { count: 0, clickable: true, reset: false, index: 5 },
+    "gorb": { count: 0, clickable: true, reset: false, index: 6 },
+    "dung_defender": { count: 0, clickable: true, reset: false, index: 7 },
+    "soul_warrior": { count: 0, clickable: true, reset: false, index: 8 },
+    "brooding_mawlek": { count: 0, clickable: true, reset: false, index: 9 },
+    "nailmasters_oro_&_mato": { count: 0, clickable: true, reset: false, index: 10 },
+    "xero": { count: 0, clickable: true, reset: false, index: 11 },
+    "crystal_guardian": { count: 0, clickable: true, reset: false, index: 12 },
+    "soul_master": { count: 0, clickable: true, reset: false, index: 13 },
+    "oblobbles": { count: 0, clickable: true, reset: false, index: 14 },
+    "sisters_of_battle": { count: 0, clickable: true, reset: false, index: 15 },
+    "marmu": { count: 0, clickable: true, reset: false, index: 16 },
+    "flukemarm": { count: 0, clickable: true, reset: false, index: 17 },
+    "broken_vessel": { count: 0, clickable: true, reset: false, index: 18 },
+    "galien": { count: 0, clickable: true, reset: false, index: 19 },
+    "paintmaster_sheo": { count: 0, clickable: true, reset: false, index: 20 },
+    "hive_knight": { count: 0, clickable: true, reset: false, index: 21 },
+    "elder_hu": { count: 0, clickable: true, reset: false, index: 22 },
+    "the_collector": { count: 0, clickable: true, reset: false, index: 23 },
+    "god_tamer": { count: 0, clickable: true, reset: false, index: 24 },
+    "troupe_master_grimm": { count: 0, clickable: true, reset: false, index: 25 },
+    "watcher_knights": { count: 0, clickable: true, reset: false, index: 26 },
+    "uumuu": { count: 0, clickable: true, reset: false, index: 27 },
+    "winged_nosk": { count: 0, clickable: true, reset: false, index: 28 },
+    "great_nailsage_sly": { count: 0, clickable: true, reset: false, index: 29 },
+    "hornet_sentinel": { count: 0, clickable: true, reset: false, index: 30 },
+    "enraged_guardian": { count: 0, clickable: true, reset: false, index: 31 },
+    "lost_kin": { count: 0, clickable: true, reset: false, index: 32 },
+    "no_eyes": { count: 0, clickable: true, reset: false, index: 33 },
+    "traitor_lord": { count: 0, clickable: true, reset: false, index: 34 },
+    "white_defender": { count: 0, clickable: true, reset: false, index: 35 },
+    "soul_tyrant": { count: 0, clickable: true, reset: false, index: 36 },
+    "markoth": { count: 0, clickable: true, reset: false, index: 37 },
+    "grey_prince_zote": { count: 0, clickable: true, reset: false, index: 38 },
+    "falied_champion": { count: 0, clickable: true, reset: false, index: 39 },
+    "nightmare_king_grimm": { count: 0, clickable: true, reset: false, index: 40 },
+    "pure_vessel": { count: 0, clickable: true, reset: false, index: 41 },
+    "absolute_radiance": { count: 0, clickable: true, reset: false, index: 42 }
 }
 
 function Container() {
@@ -58,6 +58,7 @@ function Container() {
     const [table, setTable] = useState(initialState)
     const [displayNohits, setDisplayNohits] = useState(true)
     const [reset, setReset] = useState(false)
+    const [hitIndices, setHitIndices] = useState([0])
 
     const root = document.documentElement
     const changeZoom = useCallback(() => {
@@ -67,19 +68,16 @@ function Container() {
 
     useEffect(() => {
         root?.style.setProperty("--zoomConstant", 1)
-        root?.style.setProperty("--colorVar", "white")
-        root?.style.setProperty("--cursorVar", "pointer")
         window.addEventListener('resize', changeZoom)
 
         return () => window.removeEventListener('resize', changeZoom)
     }, [root?.style, changeZoom])
 
     const resetTable = () => {
-        root?.style.setProperty("--colorVar", "white")
-        root?.style.setProperty("--cursorVar", "pointer")
         setTable(initialState)
         setDisplayNohits(true)
         setReset(false)
+        setHitIndices([0])
     }
 
     const toggleNohits = () => {
@@ -88,11 +86,15 @@ function Container() {
 
     const incrementCount = (key, clickable) => {
         if (!clickable) return
+        if (!(hitIndices.includes(table[key].index)))
+            setHitIndices(prevHitIndices => {
+                return [...prevHitIndices, table[key].index].sort((a, b) => a - b)
+            })
         setTable(prevTable => {
-            return prevTable[key]['count'] < 9999999 ?
+            return prevTable[key].count < 9999999 ?
                 Object.assign({}, {
                     ...prevTable, [key]:
-                        { ...prevTable[key], ['count']: prevTable[key]['count'] + 1 }
+                        { ...prevTable[key], count: prevTable[key].count + 1 }
                 }) :
                 prevTable
         })
@@ -101,10 +103,14 @@ function Container() {
     const decrementCount = (key, clickable) => {
         if (!clickable) return
         setTable(prevTable => {
-            return prevTable[key]['count'] > 0 ?
+            if (prevTable[key].count === 1) {
+                setHitIndices(prevHitIndices => prevHitIndices.filter((value, index, array) =>
+                    value !== table[key].index))
+            }
+            return prevTable[key].count > 0 ?
                 Object.assign({}, {
                     ...prevTable, [key]:
-                        { ...prevTable[key], ['count']: prevTable[key]['count'] - 1 }
+                        { ...prevTable[key], count: prevTable[key].count - 1 }
                 }) :
                 prevTable
         })
@@ -115,44 +121,46 @@ function Container() {
         let newValue = event.target.value
         if (newValue.length > 7) newValue = newValue.substring(0, 7)
         newValue = isNaN(parseInt(newValue)) ? 0 : parseInt(newValue)
+        if (newValue > 0 && !(hitIndices.includes(table[key].index))) setHitIndices(prevHitIndices => {
+            return [...prevHitIndices, table[key].index].sort((a, b) => a - b)
+        })
+        else setHitIndices(prevHitIndices => prevHitIndices.filter((value, index, array) =>
+            value !== table[key].index))
         setTable(prevTable => Object.assign({}, {
             ...prevTable, [key]:
-                { ...prevTable[key], ['count']: newValue }
+                { ...prevTable[key], count: newValue }
         }))
     }
 
     const toggleReset = key => {
-        if (reset && !table[key]['reset']) return
-        if (table[key]['reset'] == true) {
+        if (reset && !table[key].reset) return
+        if (table[key].reset === true) {
             setTable(prevTable => Object.assign({}, {
-                ...prevTable, [key]: { ...prevTable[key], ['clickable']: true, ['reset']: false }
+                ...prevTable, [key]: { ...prevTable[key], clickable: true, reset: false }
             }))
             setReset(false)
-            root?.style.setProperty("--colorVar", "white")
-            root?.style.setProperty("--cursorVar", "pointer")
 
             for (let name of Object.keys(table)) setTable(prevTable => Object.assign({}, {
-                ...prevTable, [name]: { ...prevTable[name], ['clickable']: true, ['reset']: false }
+                ...prevTable, [name]: { ...prevTable[name], clickable: true, reset: false }
             }))
             return
         }
         for (const name of Object.keys(table).reverse()) {
-            if (name == key) break
-            if (table[name]['count'] != 0) return
+            if (name === key) break
+            if (table[name].count !== 0) return
         }
-        for (const name of Object.keys(table)) {
-            if (name == key) {
+        for (const name of Object.keys(table).reverse()) {
+            if (name === key) {
                 setTable(prevTable => Object.assign({}, {
-                    ...prevTable, [name]: { ...prevTable[name], ['clickable']: true, ['reset']: true }
+                    ...prevTable, [name]: { ...prevTable[name], clickable: true, reset: true }
                 }))
                 setReset(true)
+                return
             }
             else {
                 setTable(prevTable => Object.assign({}, {
-                    ...prevTable, [name]: { ...prevTable[name], ['clickable']: false, ['reset']: false }
+                    ...prevTable, [name]: { ...prevTable[name], clickable: false, reset: false }
                 }))
-                root?.style.setProperty("--colorVar", "silver")
-                root?.style.setProperty("--cursorVar", "not-allowed")
             }
         }
     }
@@ -162,7 +170,7 @@ function Container() {
             <div className={styles.containerDiv}>
                 <Heading />
                 <div className={styles.buttonsContainer}>
-                    <Reset resetTable={resetTable}/>
+                    <Reset resetTable={resetTable} />
                 </div>
                 <div className={styles.buttonsContainer}>
                     <GetJSON table={table} includeNohits={displayNohits} />
@@ -176,7 +184,7 @@ function Container() {
                     {
                         Object.entries(table).map(([name, data]) => {
                             return (
-                                data.count == 0 && !displayNohits && !data.reset ? null :
+                                data.count === 0 && !displayNohits && !data.reset ? null :
                                     <BossRow
                                         name={name}
                                         count={data.count}
@@ -186,6 +194,7 @@ function Container() {
                                         toggleReset={toggleReset}
                                         clickable={data.clickable}
                                         reset={data.reset}
+                                        resettable={data.index >= hitIndices[hitIndices.length - 1] && !reset}
                                         key={name}
                                     />
                             )

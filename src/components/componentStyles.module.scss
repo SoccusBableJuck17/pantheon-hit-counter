@@ -1,18 +1,13 @@
 #root {
-  $zoomConstant: 1 !global; //this value is ignored for an unknown reason, so it's passed from JS after component mounting
+  $zoomConstant: null;
 }
 
-$colorVar: #ffffff;
-$cursorVar: pointer;
+$bossTextShadow: true;
 
-@function scaleValue(
-  $value,
-  $--zoomConstant,
-  $optimalViewportHeight: 1319
-) {
-  @return calc(
-    #{$value} * #{$--zoomConstant} * 100vh / #{$optimalViewportHeight}
-  );
+@function scaleValue($value,
+  $--zoomConstant : var(--zoomConstant),
+  $optimalViewportHeight: 1319) {
+  @return calc(#{$value} * #{$--zoomConstant} * 100vh / #{$optimalViewportHeight});
 }
 
 .containerDiv {
@@ -27,16 +22,16 @@ $cursorVar: pointer;
 }
 
 @font-face {
-    font-family: hollow-knight;
-    src: url("../fonts/Trajan Pro Regular.ttf")
+  font-family: hollow-knight;
+  src: url("../fonts/Trajan Pro Regular.ttf")
 }
 
 .heading {
-    font-size: scaleValue(40, var(--zoomConstant));
-    color: white;
-    font-family: hollow-knight;
-    text-shadow: 0 0 scaleValue(20, var(--zoomConstant)) #fff,
-                0 0 scaleValue(20, var(--zoomConstant)) #fff
+  font-size: scaleValue(40);
+  color: white;
+  font-family: hollow-knight;
+  text-shadow: 0 0 scaleValue(20) #fff,
+    0 0 scaleValue(20) #fff
 }
 
 .buttonsContainer {
@@ -50,22 +45,21 @@ $cursorVar: pointer;
 .jsonButton {
   display: flex;
   width: fit-content;
-  padding-left: scaleValue(15, var(--zoomConstant));
-  padding-right: scaleValue(15, var(--zoomConstant));
+  padding-left: scaleValue(15);
+  padding-right: scaleValue(15);
   background-color: rgb(15, 15, 15);
-  font-size: scaleValue(30, var(--zoomConstant));
+  font-size: scaleValue(30);
   font: bold;
   font-family: hollow-knight;
   color: white;
-  //margin-top: scaleValue(15, var(--zoomConstant));
-  margin-bottom: scaleValue(20, var(--zoomConstant));
-  border: solid white scaleValue(3, var(--zoomConstant));
-  border-radius: scaleValue(5, var(--zoomConstant));
-  height: scaleValue(55, var(--zoomConstant));
+  margin-bottom: scaleValue(20);
+  border: solid white scaleValue(3);
+  border-radius: scaleValue(5);
+  height: scaleValue(55);
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin-right: scaleValue(30, var(--zoomConstant));
+  margin-right: scaleValue(30);
   user-select: none;
 }
 
@@ -75,21 +69,20 @@ $cursorVar: pointer;
 
 .toggleNohits {
   display: flex;
-  width: scaleValue(260, var(--zoomConstant));
+  width: scaleValue(260);
   background-color: rgb(15, 15, 15);
-  font-size: scaleValue(30, var(--zoomConstant));
+  font-size: scaleValue(30);
   font: bold;
   font-family: hollow-knight;
   color: white;
-  //margin-top: scaleValue(15, var(--zoomConstant));
-  margin-bottom: scaleValue(20, var(--zoomConstant));
-  border: solid white scaleValue(3, var(--zoomConstant));
-  border-radius: scaleValue(5, var(--zoomConstant));
-  height: scaleValue(55, var(--zoomConstant));
+  margin-bottom: scaleValue(20);
+  border: solid white scaleValue(3);
+  border-radius: scaleValue(5);
+  height: scaleValue(55);
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  margin-left: scaleValue(30, var(--zoomConstant));
+  margin-left: scaleValue(30);
   user-select: none;
 }
 
@@ -99,9 +92,9 @@ $cursorVar: pointer;
 
 .reset {
   @extend .toggleNohits;
-  width: scaleValue(130, var(--zoomConstant));
-  margin-bottom: scaleValue(20, var(--zoomConstant));
-  margin-top: scaleValue(30, var(--zoomConstant));
+  width: scaleValue(130);
+  margin-bottom: scaleValue(20);
+  margin-top: scaleValue(30);
 }
 
 .reset:hover {
@@ -109,111 +102,194 @@ $cursorVar: pointer;
 }
 
 .flexContainer {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .bossesContainer {
   width: fit-content;
   display: inline-block;
-  border-bottom: solid white scaleValue(3, var(--zoomConstant));
-  border-left: solid white scaleValue(3, var(--zoomConstant));
-  border-right: solid white scaleValue(3, var(--zoomConstant));
+  border-bottom: solid white scaleValue(3);
+  border-left: solid white scaleValue(3);
+  border-right: solid white scaleValue(3);
   color: var(--colorVar);
 }
 
 .bossDiv {
-    display: flex;
-    background-color: rgb(15, 15, 15);
-    font-size: scaleValue(30, var(--zoomConstant));
-    font: bold;
-    font-family: hollow-knight;
-    color: inherit;
-    width: scaleValue(470, var(--zoomConstant));
-    height: scaleValue(55, var(--zoomConstant));
-    // border-left: solid scaleValue(3);
-    border-top: solid scaleValue(3, var(--zoomConstant));
-    border-color: white;
-    justify-content: center;
-    align-items: center;
-    cursor: var(--cursorVar);
+  display: flex;
+  background-color: rgb(15, 15, 15);
+  font-size: scaleValue(30);
+  font: bold;
+  font-family: hollow-knight;
+  color: white;
+  width: scaleValue(470);
+  height: scaleValue(55);
+  border-top: solid scaleValue(3);
+  border-color: white;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.uBossDiv {
+  display: flex;
+  background-color: rgb(15, 15, 15);
+  font-size: scaleValue(30);
+  font: bold;
+  font-family: hollow-knight;
+  color: white;
+  width: scaleValue(470);
+  height: scaleValue(55);
+  border-top: solid scaleValue(3);
+  border-color: white;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.bossDiv:hover {
+  text-shadow: 0 0 scaleValue(7) white,
+    0 0 scaleValue(7) white;
+  ;
+
 }
 
 .rBossDiv {
-  @extend .bossDiv;
+  display: flex;
+  background-color: rgb(15, 15, 15);
+  font-size: scaleValue(30);
+  font: bold;
+  font-family: hollow-knight;
+  width: scaleValue(470);
+  height: scaleValue(55);
+  border-top: solid scaleValue(3);
+  border-color: white;
+  justify-content: center;
+  align-items: center;
+
   cursor: pointer;
   color: white;
-  text-shadow: 0 0 scaleValue(7, var(--zoomConstant)) #FEFCC1,
-               0 0 scaleValue(7, var(--zoomConstant)) #FEFCC1
+  text-shadow: 0 0 scaleValue(7) #FEFCC1,
+    0 0 scaleValue(7) #FEFCC1
 }
 
-/* .bossDiv:hover {
-  background: rgb(50, 50, 50);
-} */
+.rBossDiv:hover {
+  text-shadow: 0 0 scaleValue(7) #FEFCC1,
+    0 0 scaleValue(7) #FEFCC1,
+    0 0 scaleValue(7) #FEFCC1,
+    0 0 scaleValue(7) #FEFCC1
+}
+
+.iBossDiv {
+  display: flex;
+  background-color: rgb(15, 15, 15);
+  font-size: scaleValue(30);
+  font: bold;
+  font-family: hollow-knight;
+  width: scaleValue(470);
+  height: scaleValue(55);
+  border-top: solid scaleValue(3);
+  border-color: white;
+  justify-content: center;
+  align-items: center;
+  cursor: not-allowed;
+  color: silver;
+}
 
 .countDiv {
-    display: flex;
-    cursor: var(--cursorVar);
-    background-color: rgb(15, 15, 15);
-    font-size: scaleValue(30, var(--zoomConstant));
-    font: bold;
-    color: inherit;
-    font-family: hollow-knight;
-    width: scaleValue(140, var(--zoomConstant));
-    height: scaleValue(55, var(--zoomConstant));
-    border-top: solid scaleValue(3, var(--zoomConstant));
-    border-right: solid scaleValue(3, var(--zoomConstant));
-    border-color: white;
-    justify-content: center;
-    align-items: center;
-}
-
-.countDiv:hover {
-  background: rgb(50, 50, 50);
+  display: flex;
+  cursor: var(--cursorVar);
+  background-color: rgb(15, 15, 15);
+  font-size: scaleValue(30);
+  font: bold;
+  color: inherit;
+  font-family: hollow-knight;
+  width: scaleValue(140);
+  height: scaleValue(55);
+  border-top: solid scaleValue(3);
+  border-right: solid scaleValue(3);
+  border-color: white;
+  justify-content: center;
+  align-items: center;
 }
 
 .inputCount {
-    font-size: scaleValue(30, var(--zoomConstant));
-    cursor: var(--cursorVar);
-    font: bold;
-    color: inherit;
-    font-family: hollow-knight;
-    background-color: transparent;
-    width: 100%;
-    height: scaleValue(50, var(--zoomConstant));
-    text-align: center;
-    border: none;
-    outline: none;
-    margin-right: scaleValue(10, var(--zoomConstant));
+  font-size: scaleValue(30);
+  cursor: var(--cursorVar);
+  font: bold;
+  color: white;
+  font-family: hollow-knight;
+  background-color: transparent;
+  width: 100%;
+  height: scaleValue(50);
+  text-align: center;
+  border: none;
+  outline: none;
+  margin-right: scaleValue(10);
+}
+
+.inputCount:hover {
+  text-shadow: 0 0 scaleValue(7) white,
+    0 0 scaleValue(7) white
 }
 
 .rInputCount {
-  @extend .inputCount;
+  font-size: scaleValue(30);
+  font: bold;
+  font-family: hollow-knight;
+  background-color: transparent;
+  width: 100%;
+  height: scaleValue(50);
+  text-align: center;
+  border: none;
+  outline: none;
+  margin-right: scaleValue(10);
+
   cursor: pointer;
   color: white;
-  text-shadow: 0 0 scaleValue(7, var(--zoomConstant)) #FEFCC1,
-               0 0 scaleValue(7, var(--zoomConstant)) #FEFCC1
+  text-shadow: 0 0 scaleValue(7) #FEFCC1,
+    0 0 scaleValue(7) #FEFCC1
 }
 
-/* .inputCount:hover {
-  background: rgb(50, 50, 50);
-} */
+.rInputCount:hover {
+  text-shadow: 0 0 scaleValue(7) #FEFCC1,
+    0 0 scaleValue(7) #FEFCC1,
+    0 0 scaleValue(7) #FEFCC1,
+    0 0 scaleValue(7) #FEFCC1
+}
+
+.iInputCount {
+  font-size: scaleValue(30);
+  font: bold;
+  font-family: hollow-knight;
+  background-color: transparent;
+  width: 100%;
+  height: scaleValue(50);
+  text-align: center;
+  border: none;
+  outline: none;
+  margin-right: scaleValue(10);
+
+  cursor: not-allowed;
+  color: silver;
+  caret-color: transparent;
+}
 
 .plus {
-  display:inline-block;
+  display: inline-block;
   cursor: var(--cursorVar);
-  width: scaleValue(55, var(--zoomConstant));
-  height: scaleValue(55, var(--zoomConstant));
-  border-top: solid scaleValue(3, var(--zoomConstant));
-  border-right: solid scaleValue(3, var(--zoomConstant));
+  width: scaleValue(55);
+  height: scaleValue(55);
+  border-top: solid scaleValue(3);
+  border-right: solid scaleValue(3);
   border-color: white;
-  
+
   background:
-    linear-gradient(var(--colorVar) 0 0),
-    linear-gradient(var(--colorVar) 0 0),
+    linear-gradient(white 0 0),
+    linear-gradient(white 0 0),
     rgb(15, 15, 15);
   background-position: center;
-  background-size: 50% scaleValue(2, var(--zoomConstant)), scaleValue(2, var(--zoomConstant)) 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-size: 50% scaleValue(2), scaleValue(2) 50%;
   background-repeat: no-repeat;
 }
 
@@ -221,113 +297,145 @@ $cursorVar: pointer;
   @extend .plus;
   cursor: pointer;
   background:
-  linear-gradient(white 0 0),
-  linear-gradient(white 0 0),
-  rgb(15, 15, 15);
-  background-position: center;
-  background-size: 50% scaleValue(2, var(--zoomConstant)), scaleValue(2, var(--zoomConstant)) 50%; /*thickness = 2px, length = 50% (25px)*/
-  background-repeat: no-repeat;
-}
-
-  .plus:hover {
-    background:
-    linear-gradient(var(--colorVar) 0 0),
-    linear-gradient(var(--colorVar) 0 0),
-    rgb(50, 50, 50);
-    background-position: center;
-    background-size: 50% scaleValue(2, var(--zoomConstant)), scaleValue(2, var(--zoomConstant)) 50%; /*thickness = 2px, length = 50% (25px)*/
-    background-repeat: no-repeat;
-  }
-
-  .minus {
-    display:inline-block;
-    cursor: var(--cursorVar);
-    width: scaleValue(55, var(--zoomConstant));
-    height: scaleValue(55, var(--zoomConstant));
-    border-top: solid scaleValue(3, var(--zoomConstant));
-    // border-right: solid scaleValue(3);
-    border-color: white;
-    
-    background:
-      linear-gradient(var(--colorVar) 0 0),
-      linear-gradient(var(--colorVar) 0 0),
-      rgb(15, 15, 15);
-    background-position: center;
-    background-size: 50% scaleValue(2, var(--zoomConstant)), 0px 50%; /*thickness = 2px, length = 50% (25px)*/
-    background-repeat: no-repeat;
-  }
-
-  .rMinus {
-    @extend .minus;
-    cursor: pointer;
-    background:
     linear-gradient(white 0 0),
     linear-gradient(white 0 0),
     rgb(15, 15, 15);
-    background-position: center;
-    background-size: 50% scaleValue(2, var(--zoomConstant)), 0px 50%; /*thickness = 2px, length = 50% (25px)*/
-    background-repeat: no-repeat;
-  }
+  background-position: center;
+  background-size: 50% scaleValue(2), scaleValue(2) 50%;
+  background-repeat: no-repeat;
+}
 
-  .minus:hover {
-    background:
-      linear-gradient(var(--colorVar) 0 0),
-      linear-gradient(var(--colorVar) 0 0),
-      rgb(50, 50, 50);
-    background-position: center;
-    background-size: 50% scaleValue(2, var(--zoomConstant)), 0px 50%; /*thickness = 2px, length = 50% (25px)*/
-    background-repeat: no-repeat;
-  }
+.iPlus {
+  display: inline-block;
+  width: scaleValue(55);
+  height: scaleValue(55);
+  border-top: solid scaleValue(3);
+  border-right: solid scaleValue(3);
+  border-color: white;
+  cursor: not-allowed;
+  background:
+    linear-gradient(silver 0 0),
+    linear-gradient(silver 0 0),
+    rgb(15, 15, 15);
+  background-position: center;
+  background-size: 50% scaleValue(2), scaleValue(2) 50%;
+  background-repeat: no-repeat;
+}
 
-  .totalHits {
-    display: flex;
-    background-color: rgb(15, 15, 15);
-    font-size: scaleValue(30, var(--zoomConstant));
-    font: bold;
-    font-family: hollow-knight;
-    color: white;
-    width: 100%;
-    height: scaleValue(55, var(--zoomConstant));
-    border-top: solid scaleValue(3, var(--zoomConstant));
-    border-color: white;
-    justify-content: center;
-    align-items: center;
-    min-width: scaleValue(300, var(--zoomConstant))
-  }
+.plus:hover {
+  background:
+    linear-gradient(white 0 0),
+    linear-gradient(white 0 0),
+    rgb(50, 50, 50);
+  background-position: center;
+  background-size: 50% scaleValue(2), scaleValue(2) 50%;
+  background-repeat: no-repeat;
+}
 
-  .bottomDiv {
-    background-color: white;
-     margin: 0 auto; 
-     width: scaleValue(712, var(--zoomConstant)); 
-     height: scaleValue(3, var(--zoomConstant))
-  }
+.minus {
+  display: inline-block;
+  cursor: var(--cursorVar);
+  width: scaleValue(55);
+  height: scaleValue(55);
+  border-top: solid scaleValue(3);
+  border-color: white;
 
-  .footer {
-    margin-top: scaleValue(60, var(--zoomConstant));
-    height: scaleValue(30, var(--zoomConstant));
-    background-color: rgb(24, 24, 24);
-    font-family: hollow-knight;
-    font-size: scaleValue(20, var(--zoomConstant));
-    color: rgb(200, 200, 200);
-  }
+  background:
+    linear-gradient(white 0 0),
+    linear-gradient(white 0 0),
+    rgb(15, 15, 15);
+  background-position: center;
+  background-size: 50% scaleValue(2), 0px 50%;
+  background-repeat: no-repeat;
+}
+
+.rMinus {
+  @extend .minus;
+  cursor: pointer;
+  background:
+    linear-gradient(white 0 0),
+    linear-gradient(white 0 0),
+    rgb(15, 15, 15);
+  background-position: center;
+  background-size: 50% scaleValue(2), 0px 50%;
+  background-repeat: no-repeat;
+}
+
+.iMinus {
+  display: inline-block;
+  width: scaleValue(55);
+  height: scaleValue(55);
+  border-top: solid scaleValue(3);
+  border-color: white;
+  cursor: not-allowed;
+  background:
+    linear-gradient(silver 0 0),
+    linear-gradient(silver 0 0),
+    rgb(15, 15, 15);
+  background-position: center;
+  background-size: 50% scaleValue(2), 0px 50%;
+  background-repeat: no-repeat;
+}
+
+.minus:hover {
+  background:
+    linear-gradient(white 0 0),
+    linear-gradient(white 0 0),
+    rgb(50, 50, 50);
+  background-position: center;
+  background-size: 50% scaleValue(2), 0px 50%;
+  background-repeat: no-repeat;
+}
+
+.totalHits {
+  display: flex;
+  background-color: rgb(15, 15, 15);
+  font-size: scaleValue(30);
+  font: bold;
+  font-family: hollow-knight;
+  color: white;
+  width: 100%;
+  height: scaleValue(55);
+  border-top: solid scaleValue(3);
+  border-color: white;
+  justify-content: center;
+  align-items: center;
+  min-width: scaleValue(300)
+}
+
+.bottomDiv {
+  background-color: white;
+  margin: 0 auto;
+  width: scaleValue(712);
+  height: scaleValue(3)
+}
+
+.footer {
+  margin-top: scaleValue(60);
+  height: scaleValue(30);
+  background-color: rgb(24, 24, 24);
+  font-family: hollow-knight;
+  font-size: scaleValue(20);
+  color: rgb(200, 200, 200);
+}
 
 
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
-  input[type=number] {
-    appearance: inherit;
-    -moz-appearance: textfield;
-  }
+input[type=number] {
+  appearance: inherit;
+  -moz-appearance: textfield;
+}
 
-  div::-webkit-scrollbar {
-    display: none;
-  }
+div::-webkit-scrollbar {
+  display: none;
+}
 
-  .example {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
+.example {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -1,18 +1,18 @@
 import React from 'react'
 import styles from './componentStyles.module.scss'
 
-function BossRow({ name, count, incrementCount, decrementCount, writeCount, toggleReset, clickable, reset }) {
+function BossRow({ name, count, incrementCount, decrementCount, writeCount, toggleReset, clickable, reset, resettable }) {
 
   const displayName = name.split('_').map(word => word[0].toUpperCase() + word.substr(1)).join(' ')
 
-  let plusStyle = reset ? styles.rPlus : styles.plus
-  let minusStyle = reset ? styles.rMinus : styles.minus
-  let inputCountStyle = reset ? styles.rInputCount : styles.inputCount
-  let bossStyle = reset ? styles.rBossDiv : styles.bossDiv
+  let plusStyle = reset ? styles.rPlus : clickable ? styles.plus : styles.iPlus
+  let minusStyle = reset ? styles.rMinus : clickable ? styles.minus : styles.iMinus
+  let inputCountStyle = reset ? styles.rInputCount : clickable ? styles.inputCount : styles.iInputCount
+  let bossStyle = reset ? styles.rBossDiv : !clickable ? styles.iBossDiv : resettable ? styles.bossDiv : styles.uBossDiv
 
   return (
     <div className={styles.flexContainer}>
-      <div className={bossStyle} onClick={() => {toggleReset(name)}}>{displayName}</div>
+      <div className={bossStyle} onClick={() => { toggleReset(name) }}>{displayName}</div>
       <div className={styles.countDiv}>
         <input
           className={inputCountStyle}
