@@ -90,6 +90,17 @@ $bossTextShadow: true;
   background: rgb(50, 50, 50);
 }
 
+.saveAttempt {
+  @extend .toggleNohits;
+  width: scaleValue(260);
+  margin-bottom: scaleValue(20);
+  margin-top: scaleValue(30);
+}
+
+.saveAttempt:hover {
+  background: rgb(50, 50, 50);
+}
+
 .reset {
   @extend .toggleNohits;
   width: scaleValue(130);
@@ -109,9 +120,10 @@ $bossTextShadow: true;
 .bossesContainer {
   width: fit-content;
   display: inline-block;
-  border-bottom: solid white scaleValue(3);
-  border-left: solid white scaleValue(3);
-  border-right: solid white scaleValue(3);
+  border-bottom: solid scaleValue(3);
+  border-left: solid scaleValue(3);
+  border-right: solid scaleValue(3);
+  border-color: white;
   color: var(--colorVar);
 }
 
@@ -188,8 +200,7 @@ $bossTextShadow: true;
   font-family: hollow-knight;
   width: scaleValue(470);
   height: scaleValue(55);
-  border-top: solid scaleValue(3);
-  border-color: white;
+  border-top: solid white scaleValue(3);
   justify-content: center;
   align-items: center;
   cursor: not-allowed;

@@ -7,6 +7,7 @@ import Footer from './Footer';
 import TotalHits from './TotalHits';
 import ToggleNohits from './ToggleNohits';
 import Reset from './Reset';
+import SaveAttempt from './SaveAttempt';
 
 const initialState = {
     "vengefly_king": { count: 0, clickable: true, reset: false, index: 1 },
@@ -66,12 +67,38 @@ function Container() {
         root?.style.setProperty("--zoomConstant", browserZoomLevel)
     }, [root?.style])
 
-    useEffect(() => {
+    const initZoom = useCallback(() => {
         root?.style.setProperty("--zoomConstant", 1)
         window.addEventListener('resize', changeZoom)
-
-        return () => window.removeEventListener('resize', changeZoom)
     }, [root?.style, changeZoom])
+
+    useEffect(() => {
+        initZoom()
+        return () => window.removeEventListener('resize', changeZoom)
+    }, [initZoom, changeZoom])
+
+    useEffect(() => {
+        if (!localStorage.getItem("attempts"))
+            localStorage.setItem("attempts", "[]")
+    }, [])
+
+    const resumeTable = useCallback(() => localStorage.getItem("currentAttempt") &&
+        setTable(JSON.parse(localStorage.getItem("currentAttempt"))), [])
+
+    useEffect(resumeTable, [resumeTable])
+
+    window.onbeforeunload = event => localStorage.setItem("currentAttempt", JSON.stringify(table))
+
+    const updateAttempts = newAttempt => localStorage.setItem("attempts",
+        JSON.stringify([...JSON.parse(localStorage.getItem("attempts")), newAttempt]))
+
+    const saveAttempt = () => {
+        updateAttempts({
+            date: Date.now(),
+            table: table
+        })
+        resetTable()
+    }
 
     const resetTable = () => {
         setTable(initialState)
@@ -170,6 +197,7 @@ function Container() {
             <div className={styles.containerDiv}>
                 <Heading />
                 <div className={styles.buttonsContainer}>
+                    <SaveAttempt saveAttempt={saveAttempt} />
                     <Reset resetTable={resetTable} />
                 </div>
                 <div className={styles.buttonsContainer}>
