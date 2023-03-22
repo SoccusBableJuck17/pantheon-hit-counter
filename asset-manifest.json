@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/pantheon-hit-counter/static/css/main.8fc851f2.css",
-    "main.js": "/pantheon-hit-counter/static/js/main.f4406021.js",
+    "main.css": "/pantheon-hit-counter/static/css/main.3a2fc7eb.css",
+    "main.js": "/pantheon-hit-counter/static/js/main.d621d6cd.js",
     "static/js/787.4671031b.chunk.js": "/pantheon-hit-counter/static/js/787.4671031b.chunk.js",
     "static/media/Trajan Pro Regular.ttf": "/pantheon-hit-counter/static/media/Trajan Pro Regular.7b34a885eb3b7f74c691.ttf",
     "static/media/logo.svg": "/pantheon-hit-counter/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/pantheon-hit-counter/index.html",
-    "main.8fc851f2.css.map": "/pantheon-hit-counter/static/css/main.8fc851f2.css.map",
-    "main.f4406021.js.map": "/pantheon-hit-counter/static/js/main.f4406021.js.map",
+    "main.3a2fc7eb.css.map": "/pantheon-hit-counter/static/css/main.3a2fc7eb.css.map",
+    "main.d621d6cd.js.map": "/pantheon-hit-counter/static/js/main.d621d6cd.js.map",
     "787.4671031b.chunk.js.map": "/pantheon-hit-counter/static/js/787.4671031b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8fc851f2.css",
-    "static/js/main.f4406021.js"
+    "static/css/main.3a2fc7eb.css",
+    "static/js/main.d621d6cd.js"
   ]
 }
