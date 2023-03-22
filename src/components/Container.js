@@ -77,17 +77,26 @@ function Container() {
         return () => window.removeEventListener('resize', changeZoom)
     }, [initZoom, changeZoom])
 
+    const initLSHitIndices = useCallback(() => !localStorage.getItem("hitIndices") &&
+        localStorage.setItem("hitIndices", JSON.stringify(hitIndices)), [hitIndices])
+
     useEffect(() => {
         if (!localStorage.getItem("attempts"))
             localStorage.setItem("attempts", "[]")
+        initLSHitIndices()
+    }, [initLSHitIndices])
+
+    const resumeStates = useCallback(() => {
+        setTable(JSON.parse(localStorage.getItem("currentAttempt")))
+        setHitIndices(JSON.parse(localStorage.getItem("hitIndices")))
     }, [])
 
-    const resumeTable = useCallback(() => localStorage.getItem("currentAttempt") &&
-        setTable(JSON.parse(localStorage.getItem("currentAttempt"))), [])
+    useEffect(resumeStates, [resumeStates])
 
-    useEffect(resumeTable, [resumeTable])
-
-    window.onbeforeunload = event => localStorage.setItem("currentAttempt", JSON.stringify(table))
+    window.onbeforeunload = () => {
+        localStorage.setItem("currentAttempt", JSON.stringify(table))
+        localStorage.setItem("hitIndices", JSON.stringify(hitIndices))
+    }
 
     const updateAttempts = newAttempt => localStorage.setItem("attempts",
         JSON.stringify([...JSON.parse(localStorage.getItem("attempts")), newAttempt]))

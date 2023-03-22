@@ -4,16 +4,28 @@ import styles from './componentStyles.module.scss'
 function GetJSON({ table, includeNohits }) {
 
   const copyJSON = () => {
-    const tableDownload = Object.fromEntries(Object.entries(table).map(([name, data]) => [name,
-      data['reset'] ? { count: data['count'], reset: true } : { count: data['count'] }]
-    ))
+    const reset = Object.entries(table).filter(([key, value]) => value["reset"])
+    console.log(reset.length)
+
+    const tableDownload = {
+      reset: reset.length ? reset[0][0] : "",
+      bosses: Object.fromEntries(Object.entries(table).map(([name, data]) => [name,
+        { count: data['count'] }]
+      ))
+    }
+
+    const hitsOnly = {
+      ...tableDownload, bosses:
+        Object.fromEntries(Object.entries(tableDownload.bosses).filter(([name, data]) =>
+          data['count'] > 0))
+    }
+
+
     const blob = includeNohits ? new Blob([JSON.stringify(
       tableDownload
     )], { type: "application/json" }) :
       new Blob([
-        JSON.stringify(
-          Object.fromEntries(Object.entries(tableDownload).filter(([name, data]) => data['count'] > 0 || data['reset']))
-        )
+        JSON.stringify(hitsOnly)
       ], { type: "application/json" })
     const href = URL.createObjectURL(blob)
 

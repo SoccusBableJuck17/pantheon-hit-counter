@@ -288,7 +288,7 @@ $bossTextShadow: true;
 
 .plus {
   display: inline-block;
-  cursor: var(--cursorVar);
+  cursor: pointer;
   width: scaleValue(55);
   height: scaleValue(55);
   border-top: solid scaleValue(3);
@@ -345,7 +345,7 @@ $bossTextShadow: true;
 
 .minus {
   display: inline-block;
-  cursor: var(--cursorVar);
+  cursor: pointer;
   width: scaleValue(55);
   height: scaleValue(55);
   border-top: solid scaleValue(3);
