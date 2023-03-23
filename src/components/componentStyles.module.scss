@@ -42,6 +42,32 @@ $bossTextShadow: true;
   height: fit-content;
 }
 
+.downloadAttempts {
+  display: flex;
+  width: fit-content;
+  padding-left: scaleValue(15);
+  padding-right: scaleValue(15);
+  background-color: rgb(15, 15, 15);
+  font-size: scaleValue(30);
+  font: bold;
+  font-family: hollow-knight;
+  color: white;
+  margin-bottom: scaleValue(20);
+  border: solid white scaleValue(3);
+  border-radius: scaleValue(5);
+  height: scaleValue(55);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: scaleValue(30);
+  user-select: none;
+  margin-top: scaleValue(30);
+}
+
+.downloadAttempts:hover {
+  background: rgb(50, 50, 50);
+}
+
 .jsonButton {
   display: flex;
   width: fit-content;
@@ -94,7 +120,6 @@ $bossTextShadow: true;
   @extend .toggleNohits;
   width: scaleValue(260);
   margin-bottom: scaleValue(20);
-  margin-top: scaleValue(30);
 }
 
 .saveAttempt:hover {
@@ -105,7 +130,6 @@ $bossTextShadow: true;
   @extend .toggleNohits;
   width: scaleValue(130);
   margin-bottom: scaleValue(20);
-  margin-top: scaleValue(30);
 }
 
 .reset:hover {

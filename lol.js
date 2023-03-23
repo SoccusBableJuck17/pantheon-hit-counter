@@ -103,12 +103,9 @@ function Container() {
         JSON.stringify([...JSON.parse(localStorage.getItem("attempts")), newAttempt]))
 
     const saveAttempt = () => {
-        const resetBoss = Object.entries(table).filter(([key, value]) => value["reset"])
         updateAttempts({
             date: Date.now(),
-            reset: resetBoss.length ? resetBoss[0][0] : "",
-            bosses: Object.fromEntries(Object.entries(table).map(([name, data]) => [name, data['count']]
-            ))
+            table: table
         })
         resetTable()
     }
@@ -210,7 +207,7 @@ function Container() {
             <div className={styles.containerDiv}>
                 <Heading />
                 <div className={styles.buttonsContainer}>
-                    <DownloadAttempts includeNohits={displayNohits} />
+                    <DownloadAttempts/>
                 </div>
                 <div className={styles.buttonsContainer}>
                     <SaveAttempt saveAttempt={saveAttempt} />

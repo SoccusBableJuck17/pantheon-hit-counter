@@ -5,19 +5,17 @@ function GetJSON({ table, includeNohits }) {
 
   const copyJSON = () => {
     const reset = Object.entries(table).filter(([key, value]) => value["reset"])
-    console.log(reset.length)
 
     const tableDownload = {
       reset: reset.length ? reset[0][0] : "",
-      bosses: Object.fromEntries(Object.entries(table).map(([name, data]) => [name,
-        { count: data['count'] }]
+      bosses: Object.fromEntries(Object.entries(table).map(([name, data]) => [name, data['count']]
       ))
     }
 
     const hitsOnly = {
       ...tableDownload, bosses:
-        Object.fromEntries(Object.entries(tableDownload.bosses).filter(([name, data]) =>
-          data['count'] > 0))
+        Object.fromEntries(Object.entries(tableDownload.bosses).filter(([name, count]) =>
+          count > 0))
     }
 
 
