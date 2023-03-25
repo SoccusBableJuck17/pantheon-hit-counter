@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/pantheon-hit-counter/static/css/main.68fb4621.css",
-    "main.js": "/pantheon-hit-counter/static/js/main.bee1e164.js",
+    "main.js": "/pantheon-hit-counter/static/js/main.0996a1c9.js",
     "static/js/787.4671031b.chunk.js": "/pantheon-hit-counter/static/js/787.4671031b.chunk.js",
     "static/media/Trajan Pro Regular.ttf": "/pantheon-hit-counter/static/media/Trajan Pro Regular.7b34a885eb3b7f74c691.ttf",
     "static/media/logo.svg": "/pantheon-hit-counter/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/pantheon-hit-counter/index.html",
     "main.68fb4621.css.map": "/pantheon-hit-counter/static/css/main.68fb4621.css.map",
-    "main.bee1e164.js.map": "/pantheon-hit-counter/static/js/main.bee1e164.js.map",
+    "main.0996a1c9.js.map": "/pantheon-hit-counter/static/js/main.0996a1c9.js.map",
     "787.4671031b.chunk.js.map": "/pantheon-hit-counter/static/js/787.4671031b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.68fb4621.css",
-    "static/js/main.bee1e164.js"
+    "static/js/main.0996a1c9.js"
   ]
 }
