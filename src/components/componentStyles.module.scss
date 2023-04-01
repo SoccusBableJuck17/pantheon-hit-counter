@@ -42,6 +42,207 @@ $bossTextShadow: true;
   height: fit-content;
 }
 
+.uploadHistory {
+  display: flex;
+  width: fit-content;
+  padding-left: scaleValue(15);
+  padding-right: scaleValue(15);
+  background-color: rgb(15, 15, 15);
+  font-size: scaleValue(30);
+  font: bold;
+  font-family: hollow-knight;
+  color: white;
+  margin-bottom: scaleValue(20);
+  border: solid white scaleValue(3);
+  border-radius: scaleValue(5);
+  height: scaleValue(55);
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: scaleValue(30);
+  user-select: none;
+}
+
+.uploadHistory:hover {
+  background: rgb(50, 50, 50);
+}
+
+.uploadModal {
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  display: flex;
+  width: scaleValue(470);
+  height: scaleValue(750);
+  border: solid white scaleValue(3);
+  font-family: hollow-knight;
+  font-size: scaleValue(30);
+  background-color: rgb(15, 15, 15);
+  z-index: 2;
+
+}
+
+.closeModal {
+  position: relative;
+  font-family: Arial;
+  color: rgb(255, 255, 255);
+  font-size: scaleValue(45);
+  left: 91.8%;
+  top: -0%;
+  justify-content: center;
+  opacity: 0.6;
+  width: scaleValue(40);
+  height: scaleValue(40);
+  vertical-align: text-top;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.closeModal::before,
+.closeModal::after {
+  position: absolute;
+  top: scaleValue(3.5);
+  left: scaleValue(19);
+  content: ' ';
+  height: scaleValue(33);
+  width: scaleValue(3);
+  background-color: white;
+}
+
+.closeModal::before {
+  transform: rotate(45deg);
+}
+
+.closeModal::after {
+  transform: rotate(-45deg);
+}
+
+.closeModal:hover {
+  opacity: 1;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.modalText {
+  width: 100%;
+  color: white;
+  font-size: scaleValue(35);
+  font-weight: bold;
+  margin-top: scaleValue(20);
+  margin-bottom: scaleValue(60);
+}
+
+.optionsContainer {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.uploadOption {
+  color: white;
+  cursor: pointer;
+  font-size: scaleValue(32);
+  margin-top: scaleValue(20);
+  margin-bottom: scaleValue(20);
+}
+
+.iUploadOption {
+  color: white;
+  cursor: pointer;
+  font-size: scaleValue(32);
+  margin-top: scaleValue(20);
+  margin-bottom: scaleValue(20);
+  width: 75%;
+  overflow: hidden;
+}
+
+.uploadOption:hover {
+  text-shadow: 0 0 scaleValue(20) #fff,
+    0 0 scaleValue(20) #fff
+}
+
+.selectedFile {
+  display: flex;
+  color: white;
+  font-size: scaleValue(32);
+  margin-top: scaleValue(20);
+  margin-bottom: scaleValue(20);
+  width: 75%;
+  height: scaleValue(80);
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+}
+
+.uploadSelected {
+  cursor: pointer;
+  font-size: scaleValue(32);
+  color: white;
+  margin-top: scaleValue(20);
+  margin-bottom: scaleValue(20);
+  text-shadow: 0 0 scaleValue(20) #FEFCC1,
+    0 0 scaleValue(20) #FEFCC1,
+    0 0 scaleValue(20) #FEFCC1,
+    0 0 scaleValue(20) #fffeda
+}
+
+.uploadSelected:hover {
+  color: #fffdca
+}
+
+.selectFile {
+  display: flex;
+  color: white;
+  cursor: pointer;
+  font-size: scaleValue(32);
+  margin-top: scaleValue(80);
+  width: scaleValue(210);
+  height: scaleValue(55);
+  font-family: hollow-knight;
+  border: solid white scaleValue(3);
+  justify-content: center;
+  border-radius: scaleValue(5);
+  align-items: center;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: scaleValue(20);
+}
+
+.selectFile:hover {
+  background: rgb(50, 50, 50);
+}
+
+.uploadFile {
+  display: flex;
+  color: white;
+  cursor: pointer;
+  font-size: scaleValue(32);
+  margin-top: scaleValue(20);
+  margin-bottom: scaleValue(20);
+  border: solid white scaleValue(3);
+  justify-content: center;
+  align-items: center;
+  border-radius: scaleValue(5);
+  height: scaleValue(55);
+  width: scaleValue(150);
+}
+
+.uploadFile:hover {
+  background: rgb(50, 50, 50);
+}
+
 .downloadAttempts {
   display: flex;
   width: fit-content;
@@ -186,8 +387,6 @@ $bossTextShadow: true;
 .bossDiv:hover {
   text-shadow: 0 0 scaleValue(7) white,
     0 0 scaleValue(7) white;
-  ;
-
 }
 
 .rBossDiv {

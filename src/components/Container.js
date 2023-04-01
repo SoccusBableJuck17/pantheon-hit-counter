@@ -9,6 +9,7 @@ import ToggleNohits from './ToggleNohits';
 import Reset from './Reset';
 import SaveAttempt from './SaveAttempt';
 import DownloadAttempts from './DownloadAttempts';
+import UploadAttempts from './UploadAttempts';
 
 const initialState = {
     "vengefly_king": { count: 0, clickable: true, reset: false, index: 1 },
@@ -81,11 +82,17 @@ function Container() {
     const initLSHitIndices = useCallback(() => !localStorage.getItem("hitIndices") &&
         localStorage.setItem("hitIndices", JSON.stringify(hitIndices)), [hitIndices])
 
+    const initCurrentAttempt = useCallback(() => {
+        if (!JSON.parse(localStorage.getItem("currentAttempt")))
+            localStorage.setItem("currentAttempt", JSON.stringify(table))
+    }, [table])
+
     useEffect(() => {
         if (!localStorage.getItem("attempts"))
             localStorage.setItem("attempts", "[]")
+        initCurrentAttempt()
         initLSHitIndices()
-    }, [initLSHitIndices])
+    }, [initCurrentAttempt, initLSHitIndices])
 
     const resumeStates = useCallback(() => {
         setTable(JSON.parse(localStorage.getItem("currentAttempt")))
@@ -205,6 +212,21 @@ function Container() {
         }
     }
 
+    const handleOutput = (json, selectedOption) => {
+        console.log(json, selectedOption)
+        if (selectedOption === 'current') {
+            alert('Not implemented yet')
+        }
+        if (selectedOption === 'update') {
+            localStorage.setItem("attempts",
+        JSON.stringify([...JSON.parse(localStorage.getItem("attempts")), ...json]))
+        }
+        if (selectedOption === 'overwrite') {
+            localStorage.setItem("attempts",
+                JSON.stringify(json))
+        }
+    }
+
     return (
         <div>
             <div className={styles.containerDiv}>
@@ -215,6 +237,9 @@ function Container() {
                 <div className={styles.buttonsContainer}>
                     <SaveAttempt saveAttempt={saveAttempt} />
                     <Reset resetTable={resetTable} />
+                </div>
+                <div className={styles.buttonsContainer}>
+                    <UploadAttempts handleOutput={handleOutput} />
                 </div>
                 <div className={styles.buttonsContainer}>
                     <GetJSON table={table} includeNohits={displayNohits} />
